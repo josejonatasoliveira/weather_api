@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  weather-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/weather_api_docker
+    ports:
+      - "8040:8040"
