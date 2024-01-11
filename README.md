@@ -7,9 +7,9 @@
 - [Objetivos](#objetivos)
 - [Requisitos](#requisitos)
 - [Instalação](#instalação)
-- [Instalação via Docker](#docker)
+- [Docker](#docker)
 
-  ``![Home Screen](https://github.com/josejonatasoliveira/weather_api/images/home.png)``
+  ``![Home Screen](https://github.com/josejonatasoliveira/weather_api/blob/master/images/home.png)``
 
 
 ## Objetivos
@@ -56,7 +56,7 @@ Certifique-se de ter o Python instalado com uma versão maior que 3.8. Você pod
    ```
 
 
-## Instalação via Docker
+##  Docker
 Para instalar via docker para executar o seguinte comando dentro da pasta `weather_api`.
 
 ```bash
