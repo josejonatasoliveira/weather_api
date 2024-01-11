@@ -54,6 +54,18 @@ Certifique-se de ter o Python instalado com uma versão maior que 3.8. Você pod
    ```bash
    python manage.py migrate
    ```
+6. Configurar as credenciais da api OpenWeatherMap
+
+Antes de rodar o projeto é necessário configurar a api key para se ter acesso a api da OpenWeatherMap.
+https://openweathermap.org/ 
+Para isso basta setar a variável `API_KEY` que se encontra no arquivo ``.env.weather_api`.
+
+7. Rodar
+Após os passos anteriores esta na hora de rodar a api, para isso bastar executar o seguinte comando.
+    ```bash
+   python manage.py runserver 8040
+   ```
+
 
 
 ##  Docker

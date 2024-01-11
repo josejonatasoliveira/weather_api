@@ -9,3 +9,5 @@ services:
       - .:/weather_api_docker
     ports:
       - "8040:8040"
+    env_file:
+      - ./.env.weather_api

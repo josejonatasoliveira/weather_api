@@ -155,5 +155,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # OPEN WEATHER MAP CONFIGURATION
 NUM_DAYS = 5
-API_KEY = os.getenv('API_KEY', '65ac367c710d7e84065059fe01030f5d')
-API_URL = os.getenv('API_URL', 'http://api.openweathermap.org/data/2.5/forecast')
+API_KEY = os.getenv('API_KEY')
+API_URL = os.getenv('API_URL')

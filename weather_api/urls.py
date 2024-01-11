@@ -29,11 +29,11 @@ from .views import render_dash, get_data
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="My API",
+        title="Weather API",
         default_version='v1',
-        description="My API description",
-        terms_of_service="https://www.example.com/terms/",
-        contact=openapi.Contact(email="contact@example.com"),
+        description="Weather API description",
+        terms_of_service="",
+        contact=openapi.Contact(email="josejonatasoliveira.jjo@gmail.com"),
         license=openapi.License(name="Awesome License"),
     ),
     public=True,
