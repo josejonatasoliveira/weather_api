@@ -9,7 +9,7 @@
 - [Instalação](#instalação)
 - [Docker](#docker)
 
-  ``![Home Screen](https://github.com/josejonatasoliveira/weather_api/blob/master/images/home.png)``
+  ![Home Screen](https://github.com/josejonatasoliveira/weather_api/blob/master/images/home.png)
 
 
 ## Objetivos
