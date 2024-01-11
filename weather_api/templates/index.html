@@ -54,6 +54,7 @@
         let rawData = [];
         let dataH = [];
         let max = 10;
+        let week_days = [];
 
         function readTextFile(file, callback) {
             var rawFile = new XMLHttpRequest();
@@ -93,6 +94,7 @@
                     console.log("Atualizando");
                     rawData = data.responseJSON.data;
                     dataH = data.responseJSON.data_humidity;
+                    week_days = data.responseJSON.days;
                     max = data.responseJSON.max;
 
                     ShowChart();
@@ -422,7 +424,7 @@
                 '18h', '19h', '20h', '21h', '22h', '23h'
             ];
             // prettier-ignore
-            const days = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
+            let days = week_days; //['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
             // prettier-ignore
             
             const title = [];

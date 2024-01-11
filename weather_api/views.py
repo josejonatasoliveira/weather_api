@@ -5,6 +5,9 @@ import requests
 from django.conf import settings
 from django.http import JsonResponse
 from django.shortcuts import render
+from django.utils.translation import gettext_lazy, activate
+
+activate("pt-BR")
 
 DAYS_WEEK = {
     'Sunday': 0,
@@ -46,6 +49,8 @@ def get_data(request):
     days = set()
     data_humidity = []
     waveHeight = []
+    idx_day = -1
+
     for row in data:
         response["data"].append({
             "time": datetime.utcfromtimestamp(row.get("dt")).replace(tzinfo=timezone.utc).isoformat(),
@@ -57,11 +62,16 @@ def get_data(request):
 
         waveHeight.append(row["wind"]["gust"])
 
-        data_humidity.append([DAYS_WEEK[datetime.utcfromtimestamp(row.get("dt")).replace(tzinfo=timezone.utc).strftime('%A')], int(row.get("dt_txt").split(" ")[1].split(":")[0]), row["main"]["humidity"]])
+        week_day = datetime.utcfromtimestamp(row.get("dt")).replace(tzinfo=timezone.utc).strftime('%A')
+
+        if(gettext_lazy(week_day) not in days):
+            days.add(gettext_lazy(week_day))
+            idx_day += 1
+
+        data_humidity.append([idx_day, int(row.get("dt_txt").split(" ")[1].split(":")[0]), row["main"]["humidity"]])
 
         if(row.get("dt_txt").split(" ")[0] not in day_processed and row.get("dt_txt").split(" ")[1] == "12:00:00"):
             day_processed.add(row.get("dt_txt").split(" ")[0])
-            days.add(datetime.utcfromtimestamp(row.get("dt")).replace(tzinfo=timezone.utc).strftime('%A'))
 
             response["forecast"].append({
                 "localDate": row.get("dt_txt"),
@@ -74,7 +84,8 @@ def get_data(request):
             })
     
     response = {
-        "data": response, 
+        "data": response,
+        "days": list(days),
         "max": max(waveHeight),
         "data_humidity": data_humidity
     }
