@@ -71,6 +71,10 @@ Após os passos anteriores esta na hora de rodar a api, para isso bastar executa
 ##  Docker
 Para instalar via docker para executar o seguinte comando dentro da pasta `weather_api`.
 
+Antes de rodar o projeto é necessário configurar a api key para se ter acesso a api da OpenWeatherMap.
+https://openweathermap.org/ 
+Para isso basta setar a variável `API_KEY` que se encontra no arquivo ``.env.weather_api`.
+
 ```bash
    docker-compose up --build
 ```
